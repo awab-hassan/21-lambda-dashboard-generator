@@ -1,7 +1,7 @@
 # ======================================================================
 # Portfolio .gitignore template — copy into each project repo as `.gitignore`
 # ======================================================================
-
+PROJECT_101.md
 # ------ Secrets / credentials (NEVER commit) ----------------------------
 *.pem
 *.key
