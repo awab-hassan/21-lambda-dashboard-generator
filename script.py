@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Lambda Performance Monitoring Dashboard Generator
+AWS Lambda Performance Monitoring Dashboard Generator
 
 This script creates, updates, or deletes a CloudWatch dashboard that displays performance metrics
 for all Lambda functions in your AWS account, organized by service/component.
