@@ -2,23 +2,8 @@
 
 A Python 3 CLI that auto-generates a CloudWatch dashboard covering every Lambda function in your AWS account, grouped by service. Creates, updates, or deletes a single dashboard named `LambdaPerformanceMonitoring` from a one-shot script, no manual widget editing.
 
-## How It Works
-
-```
-Lambda (all functions in region)
-    |
-    | list_functions (paginated)
-    v
-Python script
-    +-- group_functions_by_service()   regex on name + Tags.Service fallback
-    +-- create_summary_widgets()       total invocations, errors, top-10 duration, top-10 errors
-    +-- create_service_section_widgets() per function: invocations/errors/duration/concurrency
-    +-- size guard (<500 KB)           trims to top 10 per service if needed
-    |
-    | put_dashboard()
-    v
-CloudWatch Dashboard: LambdaPerformanceMonitoring
-```
+## Architecture
+![Architecture Diagram](./architecture.png)
 
 ## Dashboard Layout
 
@@ -38,15 +23,6 @@ Services are inferred by regex matching function names (`service-*`, `*-service`
 ## Stack
 
 Python 3 · boto3 · AWS CloudWatch Dashboards · Lambda (read-only)
-
-## Repository Layout
-
-```
-lambda-dashboard-generator/
-├── script.py       # Dashboard generator CLI
-├── .gitignore
-└── README.md
-```
 
 ## Prerequisites
 
